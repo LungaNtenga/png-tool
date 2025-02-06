@@ -4,8 +4,9 @@ const uploadBtn = document.getElementById('real-file');
 const customTxt = document.getElementById('custom-text');
 const dropBox = document.getElementById('drop-upload');
 const convertBtn = document.getElementById('convert-file');
+const logoBtn = document.getElementById('logo');
 
-// Customizig the messages or alerts
+// Customizig the messages or alerts of handlers
 const MESSAGES = {
     UPLOAD_SUCCESS: "✨ File successfully uploaded!",
     SELECT_FILE: "No file chosen yet..",
@@ -41,7 +42,7 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
-// This ius the function to reset everything to default after the download
+// This is the function to reset everything to default after the download
 function resetToDefault() {
     uploadBtn.value = ''; // Clear the file input
     customTxt.innerHTML = MESSAGES.SELECT_FILE; // Resets the custom text to default
@@ -123,7 +124,7 @@ async function convertToPNG(file) {
     });
 }
 
-// Function to show loader or HTML Loader 
+// This function to shows the loader or HTML Loader 
 function showLoader() {
     const originalText = convertBtn.textContent;
     convertBtn.innerHTML = `
@@ -224,6 +225,12 @@ dropBox.addEventListener('drop', function(e) {
     }
 });
 
+// Listener for the log button to reset to default
+logoBtn.addEventListener('click',function(){
+        resetToDefault();
+    } )
+
+
 // Listeners for the convert button 
 convertBtn.addEventListener('click', async function() {
     const file = uploadBtn.files[0];
@@ -275,3 +282,4 @@ function downloadFile(blob, fileName) {
     
    
 };
+// Thank you for viewing my code!!!
